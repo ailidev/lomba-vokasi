@@ -10,14 +10,13 @@ using TMPro;
 [RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour {
     public static Player Instance {get; set;}
-    // public bool canMove {get; public set;} = true;
-    public bool canMove = true;
 
     [Header("Movements")]
     [SerializeField] float m_MoveSpeed = 3f;
     [SerializeField] float m_Gravity = 30f;
     // [SerializeField] AudioSource m_Foot;
     // [SerializeField] AudioClip[] m_StepSounds;
+    public bool m_CanMove = true;
     Animator m_Animator;
     CharacterController m_CharacterController;
     AudioSource m_Audio;
@@ -214,6 +213,8 @@ public class Player : MonoBehaviour {
                     ChangeCrosshair(true);
                 }
 
+                m_InteractText.enabled = true;
+                m_InteractText.text = door.m_InteractMessage;
                 m_IsCrosshairActive = true;
                 m_DoOnce = true;
 
@@ -225,8 +226,6 @@ public class Player : MonoBehaviour {
                     }
                     if (!door.m_IsUnlocked) {
                         // ShowPopupKey(true);
-                        m_InteractText.enabled = true;
-                        m_InteractText.text = door.m_InteractMessage;
                     }
                 }
             }
@@ -273,7 +272,7 @@ public class Player : MonoBehaviour {
                     activateDeactivateObj.DeactivateObject();
                     m_Cursor.UnlockCursor();
                     m_Crosshair.enabled = false;
-                    canMove = false;
+                    m_CanMove = false;
                 }
             }
             #endregion
@@ -309,7 +308,7 @@ public class Player : MonoBehaviour {
     }
 
     void Update() {
-        if (canMove) {
+        if (m_CanMove) {
             HandleMovementInput();
             HandleMouseLook();
             FinalMovements();

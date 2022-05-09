@@ -12,14 +12,18 @@ public class MateriReader : MonoBehaviour
         m_Container.sprite = m_Sprites[index];
     }
 
-    public void ChangeImage(bool right)
+    public void NextImage()
     {
-        if (right && index != m_Sprites.Length - 1)
+        if (index != m_Sprites.Length - 1)
         {
             index++;
             m_Container.sprite = m_Sprites[index];
         }
-        if (!right && index != 0)
+    }
+
+    public void PreviousImage()
+    {
+        if (index != 0)
         {
             index--;
             m_Container.sprite = m_Sprites[index];

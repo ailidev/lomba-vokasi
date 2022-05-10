@@ -5,11 +5,14 @@ public class MateriReader : MonoBehaviour
 {
     [SerializeField] public Image m_Container;
     [SerializeField] public Sprite[] m_Sprites;
-    public int index = 0;
+    int index = 0;
 
     void Start()
     {
-        m_Container.sprite = m_Sprites[index];
+        if (m_Sprites.Length > 0)
+        {
+            m_Container.sprite = m_Sprites[index];
+        }
     }
 
     public void NextImage()

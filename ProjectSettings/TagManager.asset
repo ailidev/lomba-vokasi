@@ -9,6 +9,7 @@ TagManager:
   - Door
   - Drawer
   - Event
+  - PickedObject
   layers:
   - Default
   - TransparentFX

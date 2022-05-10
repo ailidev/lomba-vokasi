@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(BoxCollider))]
 public class InteractableObject : MonoBehaviour {
     [Header("Default")]
     [SerializeField, TextArea(2, 4), Tooltip("Show message when interacting with an object.")] public string m_InteractMessage;

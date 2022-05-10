@@ -91,10 +91,12 @@ public class Player : MonoBehaviour {
         transform.rotation = Quaternion.identity;
 
         // IMPORTANT! Initialize Game Object tag here to make interact function works perfectly
+        m_InteractableTag = new string[5];
         m_InteractableTag[0] = "Door";
         m_InteractableTag[1] = "Key";
         m_InteractableTag[2] = "Book";
         m_InteractableTag[3] = "Drawer";
+        m_InteractableTag[4] = "PickedObject";
     }
 
     void HandleMovementInput() {
@@ -296,6 +298,25 @@ public class Player : MonoBehaviour {
                         m_InteractText.enabled = true;
                         m_InteractText.text = drawer.m_InteractMessage;
                     }
+                }
+            }
+            #endregion
+
+            #region Pick Object System
+            if (m_RayHit.collider.CompareTag(m_InteractableTag[4])) {
+                PickedObject obj = m_RayHit.collider.gameObject.GetComponent<PickedObject>();
+
+                if (!m_DoOnce) {
+                    ChangeCrosshair(true);
+                    m_InteractText.enabled = true;
+                    m_InteractText.text = obj.m_InteractMessage;
+                }
+
+                m_IsCrosshairActive = true;
+                m_DoOnce = true;
+
+                if (Input.GetKeyDown(m_InteractKey[0]) || Input.GetKeyDown(m_InteractKey[1])) {
+                    obj.PickObject();
                 }
             }
             #endregion

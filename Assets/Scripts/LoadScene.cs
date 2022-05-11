@@ -4,13 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
+    public static LoadScene Instance { get; set; }
     [SerializeField] public Animator m_LoadingScreen;
+    public float m_LoadingProgress;
 
     private IEnumerator LoadAsynchronously(string name) {
         Time.timeScale = 1;
         AsyncOperation loading = SceneManager.LoadSceneAsync(name);
         loading.allowSceneActivation = false;
-        // GameObject.FindGameObjectWithTag("bgm").GetComponent<AudioSource>().volume -= .7f;
+        m_LoadingProgress = loading.progress;
 
         while (!loading.isDone) {
             // m_LoadingScreen.SetActive(true);

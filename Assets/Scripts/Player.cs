@@ -1,7 +1,3 @@
-/*
-    Handles Player behaviour.
-*/
-
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -78,6 +74,7 @@ public class Player : MonoBehaviour {
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(this);
         }
         else
         {
@@ -104,7 +101,13 @@ public class Player : MonoBehaviour {
         m_CurrentInput = new Vector2(m_MoveSpeed * Input.GetAxis("Vertical"), m_MoveSpeed * Input.GetAxis("Horizontal"));
         float m_MoveDirectionY = m_MoveDirection.y;
 
-        m_MoveDirection = (transform.TransformDirection(m_Camera.transform.forward) * m_CurrentInput.x) + (transform.TransformDirection(m_Camera.transform.right) * m_CurrentInput.y);
+        if (m_Camera != null) {
+            m_MoveDirection = (transform.TransformDirection(m_Camera.transform.forward) * m_CurrentInput.x) + (transform.TransformDirection(m_Camera.transform.right) * m_CurrentInput.y);
+        }
+        else
+        {
+            throw new System.Exception("Error: Camera is missing");
+        }
 
         m_MoveDirection.y = m_MoveDirectionY;
 
@@ -148,7 +151,14 @@ public class Player : MonoBehaviour {
         m_RotationX = Mathf.Clamp(m_RotationX, -m_UpperLookLimit, m_LowerLookLimit);
         // transform.localEulerAngles = new Vector3(-m_RotationX, m_RotationY, 0);
         // transform.rotation = Quaternion.Euler(m_RotationX, m_RotationY, 0);
-        m_Camera.transform.localRotation = Quaternion.Euler(m_RotationX, m_RotationY, 0);
+        if (m_Camera != null)
+        {
+            m_Camera.transform.localRotation = Quaternion.Euler(m_RotationX, m_RotationY, 0);
+        }
+        else
+        {
+            throw new System.Exception("Error: Camera is missing");
+        }
     }
 
     void FinalMovements() {
@@ -187,11 +197,17 @@ public class Player : MonoBehaviour {
     // }
 
     void ChangeCrosshair(bool on) {
-        if (on && !m_DoOnce) {
-            m_Crosshair.color = m_CrosshairInteractColor;
-        } else {
-            m_Crosshair.color = m_CrosshairNormalColor;
-            m_IsCrosshairActive = false;
+        if (m_Crosshair != null) {
+            if (on && !m_DoOnce) {
+                m_Crosshair.color = m_CrosshairInteractColor;
+            } else {
+                m_Crosshair.color = m_CrosshairNormalColor;
+                m_IsCrosshairActive = false;
+            }
+        }
+        else
+        {
+            throw new System.Exception("Error: Crosshair is missing");
         }
     }
 
@@ -200,131 +216,185 @@ public class Player : MonoBehaviour {
     // }
 
     void RaycastLogic() {
-        Vector3 forward = transform.TransformDirection(m_Camera.transform.forward);
-        int mask = 1 << LayerMask.NameToLayer(m_ExcludeLayerName) | m_LayerMaskInteract.value;
-        Ray ray = new Ray(m_Camera.transform.position, forward);
+        if (m_Camera != null) {
+            Vector3 forward = transform.TransformDirection(m_Camera.transform.forward);
+            Ray ray = new Ray(m_Camera.transform.position, forward);
 
-        Debug.DrawRay(ray.origin, ray.direction * m_RayLength, Color.red);
+            int mask = 1 << LayerMask.NameToLayer(m_ExcludeLayerName) | m_LayerMaskInteract.value;
 
-        if (Physics.Raycast(ray, out m_RayHit, m_RayLength, mask)) {
-            #region Door
-            if (m_RayHit.collider.CompareTag(m_InteractableTag[0])) {
-                InteractableObject door = m_RayHit.collider.gameObject.GetComponent<InteractableObject>();
+            Debug.DrawRay(ray.origin, ray.direction * m_RayLength, Color.red);
 
-                if (!m_DoOnce) {
-                    ChangeCrosshair(true);
-                }
+            if (Physics.Raycast(ray, out m_RayHit, m_RayLength, mask)) {
+                #region Door
+                if (m_RayHit.collider.CompareTag(m_InteractableTag[0])) {
+                    InteractableObject door = m_RayHit.collider.gameObject.GetComponent<InteractableObject>();
 
-                m_InteractText.enabled = true;
-                m_InteractText.text = door.m_InteractMessage;
-                m_IsCrosshairActive = true;
-                m_DoOnce = true;
-
-                if (Input.GetKeyDown(m_InteractKey[0]) || Input.GetKeyDown(m_InteractKey[1])) {
-                    // door.OpenObject();
-                    if (door.m_LoadScene != null)
-                    {
-                        m_LoadScene.LoadSceneName(door.m_LoadScene);
+                    if (!m_DoOnce) {
+                        ChangeCrosshair(true);
                     }
-                    if (!door.m_IsUnlocked) {
-                        // ShowPopupKey(true);
-                    }
-                }
-            }
-            #endregion
 
-            #region Lock Key
-            if (m_RayHit.collider.CompareTag(m_InteractableTag[1])) {
-                GameObject lockKey = m_RayHit.collider.gameObject;
-
-                if (!m_DoOnce) {
-                    ChangeCrosshair(true);
-                    m_InteractText.enabled = true;
-                    m_InteractText.text = lockKey.GetComponent<InteractableObject>().m_InteractMessage;
-                }
-
-                m_IsCrosshairActive = true;
-                m_DoOnce = true;
-
-                if (Input.GetKeyDown(m_InteractKey[0]) || Input.GetKeyDown(m_InteractKey[1])) {
-                    lockKey.GetComponent<InteractableObject>().UnlockObject();
-                    lockKey.GetComponent<MeshRenderer>().enabled = false;
-                    // RELATIVE
-                    lockKey.GetComponent<SphereCollider>().enabled = false;
-                }
-            }
-            #endregion
-
-            #region Book
-            if (m_RayHit.collider.CompareTag(m_InteractableTag[2])) {
-                ActivateDeactivateObject activateDeactivateObj = m_RayHit.collider.gameObject.GetComponent<ActivateDeactivateObject>();
-                InteractableObject book = m_RayHit.collider.gameObject.GetComponent<InteractableObject>();
-
-                if (!m_DoOnce) {
-                    ChangeCrosshair(true);
-                    m_InteractText.enabled = true;
-                    m_InteractText.text = book.m_InteractMessage;
-                }
-
-                m_IsCrosshairActive = true;
-                m_DoOnce = true;
-
-                if (Input.GetKeyDown(m_InteractKey[0]) || Input.GetKeyDown(m_InteractKey[1])) {
-                    activateDeactivateObj.ActivateObject();
-                    activateDeactivateObj.DeactivateObject();
-                    m_Cursor.UnlockCursor();
-                    m_Crosshair.enabled = false;
-                    m_CanMove = false;
-                }
-            }
-            #endregion
-
-            #region Table Drawer
-            if (m_RayHit.collider.CompareTag(m_InteractableTag[3])) {
-                InteractableObject drawer = m_RayHit.collider.gameObject.GetComponent<InteractableObject>();
-
-                if (!m_DoOnce) {
-                    ChangeCrosshair(true);
-                }
-
-                m_IsCrosshairActive = true;
-                m_DoOnce = true;
-
-                if (Input.GetKeyDown(m_InteractKey[0]) || Input.GetKeyDown(m_InteractKey[1])) {
-                    drawer.OpenObject();
-
-                    if (!drawer.m_IsUnlocked) {
-                        // ShowPopupKey(true);
+                    if (m_InteractText != null) {
+                     
                         m_InteractText.enabled = true;
-                        m_InteractText.text = drawer.m_InteractMessage;
+                        m_InteractText.text = door.m_InteractMessage;
+                    }
+                    else
+                    {
+                        throw new System.Exception("Error: Interact Text Container is missing");
+                    }
+
+                    m_IsCrosshairActive = true;
+                    m_DoOnce = true;
+
+                    if (Input.GetKeyDown(m_InteractKey[0]) || Input.GetKeyDown(m_InteractKey[1])) {
+                        // door.OpenObject();
+                        if (door.m_LoadScene != null)
+                        {
+                            m_LoadScene.LoadSceneName(door.m_LoadScene);
+                        }
+
+                        if (door.m_LoadPreviousLocation)
+                        {
+                            if (m_LoadScene.m_LoadingProgress == 1)
+                            {
+                                // GameManager.Instance.LoadPosition();
+                            }
+                        }
+
+                        if (!door.m_IsUnlocked) {
+                            // ShowPopupKey(true);
+                        }
                     }
                 }
-            }
-            #endregion
+                #endregion
 
-            #region Pick Object System
-            if (m_RayHit.collider.CompareTag(m_InteractableTag[4])) {
-                PickedObject obj = m_RayHit.collider.gameObject.GetComponent<PickedObject>();
+                #region Lock Key
+                // if (m_RayHit.collider.CompareTag(m_InteractableTag[1])) {
+                //     GameObject lockKey = m_RayHit.collider.gameObject;
 
-                if (!m_DoOnce) {
-                    ChangeCrosshair(true);
-                    m_InteractText.enabled = true;
-                    m_InteractText.text = obj.m_InteractMessage;
+                //     if (!m_DoOnce) {
+                //         ChangeCrosshair(true);
+                //         m_InteractText.enabled = true;
+                //         m_InteractText.text = lockKey.GetComponent<InteractableObject>().m_InteractMessage;
+                //     }
+
+                //     m_IsCrosshairActive = true;
+                //     m_DoOnce = true;
+
+                //     if (Input.GetKeyDown(m_InteractKey[0]) || Input.GetKeyDown(m_InteractKey[1])) {
+                //         lockKey.GetComponent<InteractableObject>().UnlockObject();
+                //         lockKey.GetComponent<MeshRenderer>().enabled = false;
+                //         // RELATIVE
+                //         lockKey.GetComponent<SphereCollider>().enabled = false;
+                //     }
+                // }
+                #endregion
+
+                #region Book
+                if (m_RayHit.collider.CompareTag(m_InteractableTag[2])) {
+                    ActivateDeactivateObject activateDeactivateObj = m_RayHit.collider.gameObject.GetComponent<ActivateDeactivateObject>();
+                    InteractableObject book = m_RayHit.collider.gameObject.GetComponent<InteractableObject>();
+
+                    if (!m_DoOnce) {
+                        ChangeCrosshair(true);
+
+                        if (m_InteractText != null) {
+                            m_InteractText.enabled = true;
+                            m_InteractText.text = book.m_InteractMessage;
+                        }
+                        else
+                        {
+                            throw new System.Exception("Error: Interact Text Container is missing");
+                        }
+                    }
+
+                    m_IsCrosshairActive = true;
+                    m_DoOnce = true;
+
+                    if (Input.GetKeyDown(m_InteractKey[0]) || Input.GetKeyDown(m_InteractKey[1])) {
+                        activateDeactivateObj.ActivateObject();
+                        activateDeactivateObj.DeactivateObject();
+                        m_Cursor.UnlockCursor();
+
+                        if (m_Crosshair != null)
+                        {
+                            m_Crosshair.enabled = false;
+                        }
+                        else
+                        {
+                            throw new System.Exception("Error: Crosshair is missing");
+                        }
+                        m_CanMove = false;
+                    }
                 }
+                #endregion
 
-                m_IsCrosshairActive = true;
-                m_DoOnce = true;
+                #region Table Drawer
+                // if (m_RayHit.collider.CompareTag(m_InteractableTag[3])) {
+                //     InteractableObject drawer = m_RayHit.collider.gameObject.GetComponent<InteractableObject>();
 
-                if (Input.GetKeyDown(m_InteractKey[0]) || Input.GetKeyDown(m_InteractKey[1])) {
-                    obj.PickObject();
+                //     if (!m_DoOnce) {
+                //         ChangeCrosshair(true);
+                //     }
+
+                //     m_IsCrosshairActive = true;
+                //     m_DoOnce = true;
+
+                //     if (Input.GetKeyDown(m_InteractKey[0]) || Input.GetKeyDown(m_InteractKey[1])) {
+                //         drawer.OpenObject();
+
+                //         if (!drawer.m_IsUnlocked) {
+                //             // ShowPopupKey(true);
+                //             m_InteractText.enabled = true;
+                //             m_InteractText.text = drawer.m_InteractMessage;
+                //         }
+                //     }
+                // }
+                #endregion
+
+                #region Pick Object System
+                if (m_RayHit.collider.CompareTag(m_InteractableTag[4])) {
+                    PickedObject obj = m_RayHit.collider.gameObject.GetComponent<PickedObject>();
+
+                    if (!m_DoOnce) {
+                        ChangeCrosshair(true);
+
+                        if (m_InteractText != null)
+                        {
+                            m_InteractText.enabled = true;
+                            m_InteractText.text = obj.m_InteractMessage;
+                        }
+                        else
+                        {
+                            throw new System.Exception("Error: Interact Text Container is missing");
+                        }
+                    }
+
+                    m_IsCrosshairActive = true;
+                    m_DoOnce = true;
+
+                    if (Input.GetKeyDown(m_InteractKey[0]) || Input.GetKeyDown(m_InteractKey[1])) {
+                        obj.PickObject();
+                    }
+                }
+                #endregion
+            } else if (m_IsCrosshairActive) {
+                ChangeCrosshair(false);
+                m_DoOnce = false;
+                // ShowPopupKey(false);
+
+                if (m_InteractText != null) {
+                    m_InteractText.enabled = false;
+                }
+                else
+                {
+                    throw new System.Exception("Error: Interact Text Container is missing");
                 }
             }
-            #endregion
-        } else if (m_IsCrosshairActive) {
-            ChangeCrosshair(false);
-            m_DoOnce = false;
-            // ShowPopupKey(false);
-            m_InteractText.enabled = false;
+        }
+        else
+        {
+            throw new System.Exception("Error: Camera is missing");
         }
     }
 

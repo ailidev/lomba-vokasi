@@ -10,7 +10,7 @@ public class InteractableObject : MonoBehaviour {
     [SerializeField, TextArea(2, 4), Tooltip("Show message when interacting with an object.")] public string m_InteractMessage;
     [SerializeField, TextArea(2, 4)] public string m_LoadScene;
     [SerializeField, Tooltip("Play a sound when interacting with an object.")] protected AudioClip m_NormalSound, m_LockedSound, m_UnlockedSound;
-    [SerializeField] public int m_SpawnPoint;
+    [SerializeField] public bool m_LoadPreviousLocation;
 
     [Header("Locked Object")]
     [SerializeField, Tooltip("Is this object need a key to unlock?")] protected bool m_NeedKey;

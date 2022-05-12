@@ -1,5 +1,70 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9132761517971738123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c599ddc9a1b854f85859c7762a12fb, type: 3}
+  m_Name: Dialogue Element
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 9000, y: -200}
+  ports:
+    keys:
+    - PreviousNode
+    - NextNode
+    values:
+    - _fieldName: PreviousNode
+      _node: {fileID: -9132761517971738123}
+      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: NextNode
+        node: {fileID: -5916229144656622526}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextNode
+      _node: {fileID: -9132761517971738123}
+      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: PreviousNode
+        node: {fileID: -194201166947482961}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  Active: 0
+  Next: {fileID: 0}
+  PreviousNode:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _typeConstraint: 0
+    _dynamic: 0
+  NextNode:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _typeConstraint: 0
+    _dynamic: 0
+  CharacterName: Main Character
+  Dialogue: Ya mumpung gratis langsung saya isi formulir wkwkwk..
 --- !u!114 &-9131239451272517446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,7 +78,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 10904, y: -168}
+  position: {x: 10648, y: -520}
   ports:
     keys:
     - PreviousNode
@@ -40,14 +105,14 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: PreviousNode
-        node: {fileID: -1231639270354642086}
+        node: {fileID: -2301194558471731296}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   Active: 0
-  Next: {fileID: -1231639270354642086}
+  Next: {fileID: 0}
   PreviousNode:
     _fieldName: 
     _node: {fileID: 0}
@@ -66,7 +131,7 @@ MonoBehaviour:
     _connectionType: 0
     _typeConstraint: 0
     _dynamic: 0
-  CharacterName: main Character
+  CharacterName: Main Character
   Dialogue: Sebentar Rez, saya siapin teh sama cemilan.
 --- !u!114 &-8874558596165335446
 MonoBehaviour:
@@ -81,7 +146,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2440, y: -248}
+  position: {x: 2040, y: -344}
   ports:
     keys:
     - PreviousNode
@@ -146,7 +211,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 4760, y: -408}
+  position: {x: 3992, y: -216}
   ports:
     keys:
     - PreviousNode
@@ -211,7 +276,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2056, y: -264}
+  position: {x: 1736, y: -344}
   ports:
     keys:
     - PreviousNode
@@ -262,7 +327,7 @@ MonoBehaviour:
     _typeConstraint: 0
     _dynamic: 0
   CharacterName: Main Character
-  Dialogue: Ohh.. Temanku. Ada apa ini tumben banget main ke rumah saya ?
+  Dialogue: Ohh.. Temanku. Ada apa ini? Tumben banget main ke rumah saya?
 --- !u!114 &-6434464747576216348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,7 +341,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 6664, y: -232}
+  position: {x: 6248, y: -536}
   ports:
     keys:
     - PreviousNode
@@ -327,8 +392,74 @@ MonoBehaviour:
     _typeConstraint: 0
     _dynamic: 0
   CharacterName: Reza
-  Dialogue: Lahh.. kamu niat nyari kerja atau gimana sih ? katanya juga mau nyari
-    pengalaman. Asal kamu tau ya, daftar di kenmaker itu banyak keuntungan.
+  Dialogue: Lahh.. kamu niat nyari kerja atau gimana sih? Katanya juga mau nyari
+    pengalaman. Asal kamu tau ya, daftar di kenmaker itu banyak. keuntungan.
+--- !u!114 &-5916229144656622526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c599ddc9a1b854f85859c7762a12fb, type: 3}
+  m_Name: Dialogue Element
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 9000, y: -488}
+  ports:
+    keys:
+    - PreviousNode
+    - NextNode
+    values:
+    - _fieldName: PreviousNode
+      _node: {fileID: -5916229144656622526}
+      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: NextNode
+        node: {fileID: -3375565401617132865}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextNode
+      _node: {fileID: -5916229144656622526}
+      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: PreviousNode
+        node: {fileID: -9132761517971738123}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  Active: 0
+  Next: {fileID: 0}
+  PreviousNode:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _typeConstraint: 0
+    _dynamic: 0
+  NextNode:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _typeConstraint: 0
+    _dynamic: 0
+  CharacterName: Main Character
+  Dialogue: Sudah tadi, ketika pertama kali masuk beranda banyak sekali info lembaga
+    pelatihan terdekat.
 --- !u!114 &-5662478275466262699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,7 +473,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 4408, y: -392}
+  position: {x: 3656, y: -216}
   ports:
     keys:
     - PreviousNode
@@ -407,7 +538,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 5080, y: -408}
+  position: {x: 4328, y: -216}
   ports:
     keys:
     - PreviousNode
@@ -431,7 +562,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: PreviousNode
-        node: {fileID: 6006971731875645697}
+        node: {fileID: 9097919166058925441}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -458,74 +589,7 @@ MonoBehaviour:
     _typeConstraint: 0
     _dynamic: 0
   CharacterName: Reza
-  Dialogue: Kebiasaan sok tau.. Intinya sih
---- !u!114 &-5582389829590217299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8799a82e84b964f4bb292369e6bf7f69, type: 3}
-  m_Name: Loading Screen Element
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 11704, y: -88}
-  ports:
-    keys:
-    - PreviousNode
-    - NextNode
-    values:
-    - _fieldName: PreviousNode
-      _node: {fileID: -5582389829590217299}
-      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: NextNode
-        node: {fileID: -1231639270354642086}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: NextNode
-      _node: {fileID: -5582389829590217299}
-      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: PreviousNode
-        node: {fileID: -2301194558471731296}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-  Active: 0
-  Next: {fileID: -2301194558471731296}
-  PreviousNode:
-    _fieldName: 
-    _node: {fileID: 0}
-    _typeQualifiedName: 
-    connections: []
-    _direction: 0
-    _connectionType: 0
-    _typeConstraint: 0
-    _dynamic: 0
-  NextNode:
-    _fieldName: 
-    _node: {fileID: 0}
-    _typeQualifiedName: 
-    connections: []
-    _direction: 0
-    _connectionType: 0
-    _typeConstraint: 0
-    _dynamic: 0
-  ShowLoadScreen: 1
-  FadeOutTime: 1
-  FadeOtherElements: 0
-  WaitToFinish: 1
+  Dialogue: Kebiasaan sok tau...
 --- !u!114 &-5566758404070991281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,7 +603,7 @@ MonoBehaviour:
   m_Name: Choice Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 4040, y: -264}
+  position: {x: 3320, y: -360}
   ports:
     keys:
     - PreviousNode
@@ -613,8 +677,8 @@ MonoBehaviour:
     _typeConstraint: 0
     _dynamic: 0
   Choices:
-  - Kenmaker ??
-  - ohh yang itu ya ?
+  - Kemnaker?
+  - Ohh yang itu ya?
   ShuffleChocies: 0
   HideDialogue: 0
 --- !u!114 &-5561447945153777971
@@ -630,7 +694,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 3288, y: -280}
+  position: {x: 2680, y: -344}
   ports:
     keys:
     - PreviousNode
@@ -695,7 +759,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 5944, y: -120}
+  position: {x: 5464, y: -424}
   ports:
     keys:
     - PreviousNode
@@ -746,7 +810,7 @@ MonoBehaviour:
     _typeConstraint: 0
     _dynamic: 0
   CharacterName: Reza
-  Dialogue: Simpel sih, kamu cukup daftar saja di website kenmaker.
+  Dialogue: Simpel sih, kamu cukup daftar saja di website Kemnaker.
 --- !u!114 &-4401889588583173836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -760,7 +824,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 88, y: -328}
+  position: {x: 88, y: -344}
   ports:
     keys:
     - PreviousNode
@@ -772,7 +836,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: NextNode
-        node: {fileID: 2246152026668548231}
+        node: {fileID: 836671019210221671}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -811,7 +875,7 @@ MonoBehaviour:
     _typeConstraint: 0
     _dynamic: 0
   CharacterName: Main Character
-  Dialogue: Duh, Bagaimana ini...
+  Dialogue: Duh, bagaimana ini...
 --- !u!114 &-3375565401617132865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -825,7 +889,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 8872, y: 24}
+  position: {x: 8616, y: -328}
   ports:
     keys:
     - PreviousNode
@@ -837,7 +901,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: NextNode
-        node: {fileID: 2440143328247089742}
+        node: {fileID: 6955528459585950603}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -849,14 +913,14 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: PreviousNode
-        node: {fileID: -1789381312952744213}
+        node: {fileID: -5916229144656622526}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   Active: 0
-  Next: {fileID: -1789381312952744213}
+  Next: {fileID: 0}
   PreviousNode:
     _fieldName: 
     _node: {fileID: 0}
@@ -890,7 +954,7 @@ MonoBehaviour:
   m_Name: Choice Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 10021.289, y: -72.316986}
+  position: {x: 9768, y: -424}
   ports:
     keys:
     - PreviousNode
@@ -965,7 +1029,7 @@ MonoBehaviour:
     _dynamic: 0
   Choices:
   - O iya lupa
-  - 'lagian saya ga ngundang kamu '
+  - Lagian saya ga ngundang kamu.
   ShuffleChocies: 1
   HideDialogue: 0
 --- !u!114 &-2584155167304940156
@@ -981,7 +1045,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 2904, y: -232}
+  position: {x: 2360, y: -344}
   ports:
     keys:
     - PreviousNode
@@ -1032,7 +1096,7 @@ MonoBehaviour:
     _typeConstraint: 0
     _dynamic: 0
   CharacterName: Reza
-  Dialogue: Ngomong-ngomong kok muka kamu kebigungan begitu ?
+  Dialogue: Ngomong-ngomong kok muka kamu kebingungan begitu?
 --- !u!114 &-2301194558471731296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1046,7 +1110,7 @@ MonoBehaviour:
   m_Name: Load Scene After Story
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 11512, y: 296}
+  position: {x: 11368, y: -520}
   ports:
     keys:
     - PreviousNode
@@ -1058,7 +1122,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: NextNode
-        node: {fileID: -5582389829590217299}
+        node: {fileID: -9131239451272517446}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -1094,195 +1158,6 @@ MonoBehaviour:
     _typeConstraint: 0
     _dynamic: 0
   SceneName: MainHall
---- !u!114 &-1789381312952744213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3c599ddc9a1b854f85859c7762a12fb, type: 3}
-  m_Name: Dialogue Element
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 9288, y: 40}
-  ports:
-    keys:
-    - PreviousNode
-    - NextNode
-    values:
-    - _fieldName: PreviousNode
-      _node: {fileID: -1789381312952744213}
-      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: NextNode
-        node: {fileID: -3375565401617132865}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: NextNode
-      _node: {fileID: -1789381312952744213}
-      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: PreviousNode
-        node: {fileID: -194201166947482961}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-  Active: 0
-  Next: {fileID: -194201166947482961}
-  PreviousNode:
-    _fieldName: 
-    _node: {fileID: 0}
-    _typeQualifiedName: 
-    connections: []
-    _direction: 0
-    _connectionType: 0
-    _typeConstraint: 0
-    _dynamic: 0
-  NextNode:
-    _fieldName: 
-    _node: {fileID: 0}
-    _typeQualifiedName: 
-    connections: []
-    _direction: 0
-    _connectionType: 0
-    _typeConstraint: 0
-    _dynamic: 0
-  CharacterName: Main Character
-  Dialogue: Sudah tadi, ketika pertama kali masuk beranda banyak sekali info lembaga
-    pelatihan terdekat. Ya mumpung gratis langsung saya isi formulir wkwkwk..
---- !u!114 &-1604348696008855194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc8c1f10e2849f8459929005181ff6a3, type: 3}
-  m_Name: Spawn Object Element
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 1089.142, y: -459.35675}
-  ports:
-    keys:
-    - PreviousNode
-    - NextNode
-    values:
-    - _fieldName: PreviousNode
-      _node: {fileID: -1604348696008855194}
-      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: NextNode
-      _node: {fileID: -1604348696008855194}
-      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-  Active: 0
-  Next: {fileID: 0}
-  PreviousNode:
-    _fieldName: 
-    _node: {fileID: 0}
-    _typeQualifiedName: 
-    connections: []
-    _direction: 0
-    _connectionType: 0
-    _typeConstraint: 0
-    _dynamic: 0
-  NextNode:
-    _fieldName: 
-    _node: {fileID: 0}
-    _typeQualifiedName: 
-    connections: []
-    _direction: 0
-    _connectionType: 0
-    _typeConstraint: 0
-    _dynamic: 0
-  ObjectToSpawn: {fileID: 0}
---- !u!114 &-1231639270354642086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3c599ddc9a1b854f85859c7762a12fb, type: 3}
-  m_Name: Dialogue Element
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 11256, y: -152}
-  ports:
-    keys:
-    - PreviousNode
-    - NextNode
-    values:
-    - _fieldName: PreviousNode
-      _node: {fileID: -1231639270354642086}
-      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: NextNode
-        node: {fileID: -9131239451272517446}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: NextNode
-      _node: {fileID: -1231639270354642086}
-      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: PreviousNode
-        node: {fileID: -5582389829590217299}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-  Active: 0
-  Next: {fileID: -5582389829590217299}
-  PreviousNode:
-    _fieldName: 
-    _node: {fileID: 0}
-    _typeQualifiedName: 
-    connections: []
-    _direction: 0
-    _connectionType: 0
-    _typeConstraint: 0
-    _dynamic: 0
-  NextNode:
-    _fieldName: 
-    _node: {fileID: 0}
-    _typeQualifiedName: 
-    connections: []
-    _direction: 0
-    _connectionType: 0
-    _typeConstraint: 0
-    _dynamic: 0
-  CharacterName: Main Character
-  Dialogue: 
 --- !u!114 &-1146428374070011422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1296,7 +1171,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 10680, y: 72}
+  position: {x: 10424, y: -296}
   ports:
     keys:
     - PreviousNode
@@ -1361,7 +1236,7 @@ MonoBehaviour:
   m_Name: Choice Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 6312, y: -136}
+  position: {x: 5832, y: -440}
   ports:
     keys:
     - PreviousNode
@@ -1435,8 +1310,8 @@ MonoBehaviour:
     _typeConstraint: 0
     _dynamic: 0
   Choices:
-  - apa perlu datar di kenmaker ga ya ?
-  - Keuntungan datar di kenmaker apa sih rez ?
+  - Apa perlu daftar di Kemnaker?
+  - Keuntungan daftar di Kemnaker apa sih Rez?
   ShuffleChocies: 0
   HideDialogue: 0
 --- !u!114 &-547063309890701128
@@ -1452,7 +1327,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 4392, y: -168}
+  position: {x: 3656, y: -440}
   ports:
     keys:
     - PreviousNode
@@ -1503,7 +1378,7 @@ MonoBehaviour:
     _typeConstraint: 0
     _dynamic: 0
   CharacterName: Reza
-  Dialogue: 'iya, kenmaker.go.id '
+  Dialogue: 'iya, kemnaker.go.id '
 --- !u!114 &-194201166947482961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1517,7 +1392,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 9640, y: 40}
+  position: {x: 9384, y: -328}
   ports:
     keys:
     - PreviousNode
@@ -1529,7 +1404,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: NextNode
-        node: {fileID: -1789381312952744213}
+        node: {fileID: -9132761517971738123}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -1568,7 +1443,7 @@ MonoBehaviour:
     _typeConstraint: 0
     _dynamic: 0
   CharacterName: Reza
-  Dialogue: ngomong-ngomong saya datang kesini ga dikasih Teh atau apa gitu ?
+  Dialogue: Ngomong-ngomong saya datang kesini ga dikasih Teh atau apa gitu ?
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1585,7 +1460,6 @@ MonoBehaviour:
   - {fileID: 2246152026668548231}
   - {fileID: -4401889588583173836}
   - {fileID: 5087263068250531533}
-  - {fileID: -5582389829590217299}
   - {fileID: -2301194558471731296}
   - {fileID: 374377912373340019}
   - {fileID: 49259363904906543}
@@ -1608,21 +1482,22 @@ MonoBehaviour:
   - {fileID: 4796808137450306356}
   - {fileID: 8674997687985292213}
   - {fileID: 6347965399582856388}
-  - {fileID: 640514818224053667}
-  - {fileID: 8907218301374716506}
-  - {fileID: -1604348696008855194}
-  - {fileID: 3031392472868197119}
   - {fileID: 2440143328247089742}
-  - {fileID: -1789381312952744213}
   - {fileID: -3375565401617132865}
   - {fileID: -194201166947482961}
   - {fileID: -2800098015017837473}
   - {fileID: -9131239451272517446}
   - {fileID: 8581381372572833870}
   - {fileID: -1146428374070011422}
-  - {fileID: -1231639270354642086}
+  - {fileID: 8988148251845312378}
+  - {fileID: 836671019210221671}
+  - {fileID: 4039939190637785351}
+  - {fileID: 9097919166058925441}
+  - {fileID: 6955528459585950603}
+  - {fileID: -9132761517971738123}
+  - {fileID: -5916229144656622526}
   StoryNames:
-  - Intro
+  - Intro 1
 --- !u!114 &49259363904906543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1636,7 +1511,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1304, y: -264}
+  position: {x: 1064, y: -344}
   ports:
     keys:
     - PreviousNode
@@ -1660,14 +1535,14 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: PreviousNode
-        node: {fileID: 9205527146361182871}
+        node: {fileID: 4039939190637785351}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   Active: 0
-  Next: {fileID: 9205527146361182871}
+  Next: {fileID: 4039939190637785351}
   PreviousNode:
     _fieldName: 
     _node: {fileID: 0}
@@ -1687,7 +1562,7 @@ MonoBehaviour:
     _typeConstraint: 0
     _dynamic: 0
   CharacterName: 
-  Dialogue: tiba-tiba seseorang datang dari pintu depan.
+  Dialogue: (Tiba-tiba seseorang datang dari pintu depan)
 --- !u!114 &374377912373340019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1701,7 +1576,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 888, y: -264}
+  position: {x: 744, y: -344}
   ports:
     keys:
     - PreviousNode
@@ -1752,8 +1627,8 @@ MonoBehaviour:
     _typeConstraint: 0
     _dynamic: 0
   CharacterName: Main Character
-  Dialogue: Saya sudah lulus sekolah tapi, tidak mempunyai pengalaman apa-apa.
---- !u!114 &640514818224053667
+  Dialogue: Saya sudah lulus sekolah, tapi tidak mempunyai pengalaman apa-apa.
+--- !u!114 &836671019210221671
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1762,42 +1637,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3c599ddc9a1b854f85859c7762a12fb, type: 3}
-  m_Name: Dialogue Element
+  m_Script: {fileID: 11500000, guid: 31f75b66cbe889d4cb63a0a491cf5a3b, type: 3}
+  m_Name: Enter Scene Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 8056, y: 24}
+  position: {x: 88, y: -600}
   ports:
     keys:
     - PreviousNode
     - NextNode
     values:
     - _fieldName: PreviousNode
-      _node: {fileID: 640514818224053667}
+      _node: {fileID: 836671019210221671}
       _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       connections:
       - fieldName: NextNode
-        node: {fileID: 8674997687985292213}
+        node: {fileID: 2246152026668548231}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: NextNode
-      _node: {fileID: 640514818224053667}
+      _node: {fileID: 836671019210221671}
       _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       connections:
       - fieldName: PreviousNode
-        node: {fileID: 2440143328247089742}
+        node: {fileID: -4401889588583173836}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   Active: 0
-  Next: {fileID: 2440143328247089742}
+  Next: {fileID: -4401889588583173836}
   PreviousNode:
     _fieldName: 
     _node: {fileID: 0}
@@ -1816,8 +1691,12 @@ MonoBehaviour:
     _connectionType: 0
     _typeConstraint: 0
     _dynamic: 0
-  CharacterName: 
-  Dialogue: '*Melakukan Daftar di HP pada web kenmaker'
+  CharacterName: Main Character
+  Character: {fileID: 21300000, guid: 5d2a2d39874f5df48be921cf895d849d, type: 3}
+  Flip: 1
+  EnterFromDirection: 0
+  FinalPosition: 0
+  EnterTime: 2
 --- !u!114 &2246152026668548231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1852,14 +1731,14 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: PreviousNode
-        node: {fileID: -4401889588583173836}
+        node: {fileID: 836671019210221671}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   Active: 0
-  Next: {fileID: -4401889588583173836}
+  Next: {fileID: 836671019210221671}
   PreviousNode:
     _fieldName: 
     _node: {fileID: 0}
@@ -1878,7 +1757,7 @@ MonoBehaviour:
     _connectionType: 0
     _typeConstraint: 0
     _dynamic: 0
-  StoryName: Intro
+  StoryName: Intro 1
   IsRoot: 1
 --- !u!114 &2440143328247089742
 MonoBehaviour:
@@ -1893,7 +1772,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 8424, y: 8}
+  position: {x: 8216, y: -456}
   ports:
     keys:
     - PreviousNode
@@ -1903,10 +1782,7 @@ MonoBehaviour:
       _node: {fileID: 2440143328247089742}
       _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections:
-      - fieldName: NextNode
-        node: {fileID: 640514818224053667}
-        reroutePoints: []
+      connections: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
@@ -1917,7 +1793,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: PreviousNode
-        node: {fileID: -3375565401617132865}
+        node: {fileID: 6955528459585950603}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
@@ -1944,66 +1820,7 @@ MonoBehaviour:
     _typeConstraint: 0
     _dynamic: 0
   CharacterName: Main Character
-  Dialogue: Wahh.. baru juga daftar banyak sekali fiturnya. Masuk ke halaman beranda
-    langsung di sambut info Lowongan pekerjaan sama pelatihan gratis.
---- !u!114 &3031392472868197119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc8c1f10e2849f8459929005181ff6a3, type: 3}
-  m_Name: Spawn Object Element
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: 8040, y: -184}
-  ports:
-    keys:
-    - PreviousNode
-    - NextNode
-    values:
-    - _fieldName: PreviousNode
-      _node: {fileID: 3031392472868197119}
-      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: NextNode
-      _node: {fileID: 3031392472868197119}
-      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-  Active: 0
-  Next: {fileID: 0}
-  PreviousNode:
-    _fieldName: 
-    _node: {fileID: 0}
-    _typeQualifiedName: 
-    connections: []
-    _direction: 0
-    _connectionType: 0
-    _typeConstraint: 0
-    _dynamic: 0
-  NextNode:
-    _fieldName: 
-    _node: {fileID: 0}
-    _typeQualifiedName: 
-    connections: []
-    _direction: 0
-    _connectionType: 0
-    _typeConstraint: 0
-    _dynamic: 0
-  ObjectToSpawn: {fileID: 0}
+  Dialogue: Wahh.. baru juga daftar banyak sekali fiturnya.
 --- !u!114 &3672831292317444273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2017,7 +1834,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 5544, y: -136}
+  position: {x: 5064, y: -440}
   ports:
     keys:
     - PreviousNode
@@ -2030,6 +1847,9 @@ MonoBehaviour:
       connections:
       - fieldName: NextNode
         node: {fileID: 6006971731875645697}
+        reroutePoints: []
+      - fieldName: NextNode
+        node: {fileID: 9097919166058925441}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -2068,7 +1888,76 @@ MonoBehaviour:
     _typeConstraint: 0
     _dynamic: 0
   CharacterName: Main Character
-  Dialogue: 'Caranya gimana Rez ? '
+  Dialogue: 'Caranya gimana Rez? '
+--- !u!114 &4039939190637785351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f75b66cbe889d4cb63a0a491cf5a3b, type: 3}
+  m_Name: Enter Scene Element
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 1400, y: -616}
+  ports:
+    keys:
+    - PreviousNode
+    - NextNode
+    values:
+    - _fieldName: PreviousNode
+      _node: {fileID: 4039939190637785351}
+      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: NextNode
+        node: {fileID: 49259363904906543}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextNode
+      _node: {fileID: 4039939190637785351}
+      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: PreviousNode
+        node: {fileID: 9205527146361182871}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  Active: 0
+  Next: {fileID: 9205527146361182871}
+  PreviousNode:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _typeConstraint: 0
+    _dynamic: 0
+  NextNode:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _typeConstraint: 0
+    _dynamic: 0
+  CharacterName: Reza
+  Character: {fileID: 21300000, guid: 3f55aa82d340aab42bb3fe4c35379e8a, type: 3}
+  Flip: 0
+  EnterFromDirection: 1
+  FinalPosition: 1
+  EnterTime: 3
 --- !u!114 &4796808137450306356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2082,7 +1971,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 6728, y: -8}
+  position: {x: 6248, y: -312}
   ports:
     keys:
     - PreviousNode
@@ -2136,8 +2025,8 @@ MonoBehaviour:
     _typeConstraint: 0
     _dynamic: 0
   CharacterName: Reza
-  Dialogue: Kamu bisa dapat info mengenai lowongan pekerjaan, Pelatihan, sertifikasi
-    dan masih banyak lagi
+  Dialogue: Kamu bisa dapat info mengenai lowongan pekerjaan, pelatihan, sertifikasi
+    dan masih banyak lagi.
 --- !u!114 &5087263068250531533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2151,7 +2040,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 493.67834, y: -285.9469}
+  position: {x: 424, y: -344}
   ports:
     keys:
     - PreviousNode
@@ -2202,7 +2091,7 @@ MonoBehaviour:
     _typeConstraint: 0
     _dynamic: 0
   CharacterName: 
-  Dialogue: 
+  Dialogue: ...
 --- !u!114 &6006971731875645697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2216,7 +2105,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 5128, y: -120}
+  position: {x: 4712, y: -440}
   ports:
     keys:
     - PreviousNode
@@ -2229,9 +2118,6 @@ MonoBehaviour:
       connections:
       - fieldName: NextNode
         node: {fileID: -547063309890701128}
-        reroutePoints: []
-      - fieldName: NextNode
-        node: {fileID: -5603995135628892300}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -2270,7 +2156,7 @@ MonoBehaviour:
     _typeConstraint: 0
     _dynamic: 0
   CharacterName: Reza
-  Dialogue: Yang nyediain pelatihan gratis dan juga info lowongan kerja.
+  Dialogue: Website yang nyediain pelatihan gratis dan juga info lowongan kerja.
 --- !u!114 &6347965399582856388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2284,7 +2170,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 7112, y: -24}
+  position: {x: 6632, y: -328}
   ports:
     keys:
     - PreviousNode
@@ -2335,8 +2221,74 @@ MonoBehaviour:
     _typeConstraint: 0
     _dynamic: 0
   CharacterName: Reza
-  Dialogue: O iya, Pelatihan disana juga menerapkan tema "Indonesia Kompeten dan
+  Dialogue: O iya, pelatihan disana juga menerapkan tema "Indonesia Kompeten dan
     Berdaya Saing dengan Pelatihan Vokasi".
+--- !u!114 &6955528459585950603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c599ddc9a1b854f85859c7762a12fb, type: 3}
+  m_Name: Dialogue Element
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 8216, y: -200}
+  ports:
+    keys:
+    - PreviousNode
+    - NextNode
+    values:
+    - _fieldName: PreviousNode
+      _node: {fileID: 6955528459585950603}
+      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: NextNode
+        node: {fileID: 2440143328247089742}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextNode
+      _node: {fileID: 6955528459585950603}
+      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: PreviousNode
+        node: {fileID: -3375565401617132865}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  Active: 0
+  Next: {fileID: 0}
+  PreviousNode:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _typeConstraint: 0
+    _dynamic: 0
+  NextNode:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _typeConstraint: 0
+    _dynamic: 0
+  CharacterName: Main Character
+  Dialogue: Masuk ke halaman beranda langsung di sambut info lowongan pekerjaan dan
+    pelatihan gratis.
 --- !u!114 &7473012056448781373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2350,7 +2302,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 3656, y: -280}
+  position: {x: 3000, y: -344}
   ports:
     keys:
     - PreviousNode
@@ -2401,7 +2353,7 @@ MonoBehaviour:
     _typeConstraint: 0
     _dynamic: 0
   CharacterName: Reza
-  Dialogue: Lahh kok gitu... Kan sudah ada website kemnaker.
+  Dialogue: Lahh kok gitu, kan sudah ada website Kemnaker.
 --- !u!114 &8581381372572833870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2415,7 +2367,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 10344, y: 56}
+  position: {x: 10088, y: -296}
   ports:
     keys:
     - PreviousNode
@@ -2480,7 +2432,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 7576, y: -24}
+  position: {x: 7000, y: -328}
   ports:
     keys:
     - PreviousNode
@@ -2504,14 +2456,14 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: PreviousNode
-        node: {fileID: 640514818224053667}
+        node: {fileID: 8988148251845312378}
         reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   Active: 0
-  Next: {fileID: 640514818224053667}
+  Next: {fileID: 8988148251845312378}
   PreviousNode:
     _fieldName: 
     _node: {fileID: 0}
@@ -2531,8 +2483,8 @@ MonoBehaviour:
     _typeConstraint: 0
     _dynamic: 0
   CharacterName: Main Character
-  Dialogue: 'Ohhh... gitu ya rez. Ya udahlah saya daftar dulu di website kenmaker.go.id. '
---- !u!114 &8907218301374716506
+  Dialogue: Ohhh... gitu ya Rez. Ya udahlah, saya daftar dulu di website kemnaker.go.id.
+--- !u!114 &8988148251845312378
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2541,27 +2493,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 186519c80b988364fba5cea0c54f9e49, type: 3}
-  m_Name: Wait Element
+  m_Script: {fileID: 11500000, guid: 400fd93b88c35cb46a66f7be02b0e3b5, type: 3}
+  m_Name: Load Scene After Story
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 568, y: -552}
+  position: {x: 7368, y: -328}
   ports:
     keys:
     - PreviousNode
     - NextNode
     values:
     - _fieldName: PreviousNode
-      _node: {fileID: 8907218301374716506}
+      _node: {fileID: 8988148251845312378}
       _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: NextNode
+        node: {fileID: 8674997687985292213}
+        reroutePoints: []
       _direction: 0
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: NextNode
-      _node: {fileID: 8907218301374716506}
+      _node: {fileID: 8988148251845312378}
       _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       connections: []
@@ -2570,7 +2525,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   Active: 0
-  Next: {fileID: 374377912373340019}
+  Next: {fileID: 2440143328247089742}
   PreviousNode:
     _fieldName: 
     _node: {fileID: 0}
@@ -2589,7 +2544,73 @@ MonoBehaviour:
     _connectionType: 0
     _typeConstraint: 0
     _dynamic: 0
-  WaitTime: 8.1
+  SceneName: Daftar
+--- !u!114 &9097919166058925441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c599ddc9a1b854f85859c7762a12fb, type: 3}
+  m_Name: Dialogue Element
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 4728, y: -232}
+  ports:
+    keys:
+    - PreviousNode
+    - NextNode
+    values:
+    - _fieldName: PreviousNode
+      _node: {fileID: 9097919166058925441}
+      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: NextNode
+        node: {fileID: -5603995135628892300}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: NextNode
+      _node: {fileID: 9097919166058925441}
+      _typeQualifiedName: XNode.NodePort, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: PreviousNode
+        node: {fileID: 3672831292317444273}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  Active: 0
+  Next: {fileID: 0}
+  PreviousNode:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _typeConstraint: 0
+    _dynamic: 0
+  NextNode:
+    _fieldName: 
+    _node: {fileID: 0}
+    _typeQualifiedName: 
+    connections: []
+    _direction: 0
+    _connectionType: 0
+    _typeConstraint: 0
+    _dynamic: 0
+  CharacterName: Reza
+  Dialogue: Intinya sih website yang nyediain pelatihan gratis dan juga info lowongan
+    kerja.
 --- !u!114 &9205527146361182871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2603,7 +2624,7 @@ MonoBehaviour:
   m_Name: Dialogue Element
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1672, y: -248}
+  position: {x: 1400, y: -344}
   ports:
     keys:
     - PreviousNode
@@ -2615,7 +2636,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: NextNode
-        node: {fileID: 49259363904906543}
+        node: {fileID: 4039939190637785351}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -2654,4 +2675,4 @@ MonoBehaviour:
     _typeConstraint: 0
     _dynamic: 0
   CharacterName: Reza
-  Dialogue: permsi, apakah ada orang ?
+  Dialogue: Permisi, apakah ada orang?

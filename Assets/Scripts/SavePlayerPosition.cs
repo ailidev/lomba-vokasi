@@ -9,6 +9,8 @@ public class SavePlayerPosition : MonoBehaviour
     void Awake() {
         m_Collider = GetComponent<BoxCollider>();
         m_TeleportPosition = transform.position;
+
+        DontDestroyOnLoad(gameObject);
     }
 
     void OnTriggerEnter(Collider col)

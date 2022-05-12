@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class QuizAnswer : MonoBehaviour
 {
@@ -18,12 +19,15 @@ public class QuizAnswer : MonoBehaviour
             {
                 Debug.Log("Correct");
                 m_QuizManager.CorrectAnswer();
-                GameManager.Instance.m_GameData.m_Score += m_QuizManager.m_CorrectPoint;
+                // GameManager.Instance.m_GameData.m_Score += m_QuizManager.m_CorrectPoint;
+                m_QuizManager.m_TotalScore += m_QuizManager.m_CorrectPoint;
+                m_QuizManager.m_CorrectAnswerCount++;
             }
             else
             {
                 Debug.Log("Wrong");
                 m_QuizManager.CorrectAnswer();
+                m_QuizManager.m_WrongAnswerCount++;
             }
         }
     }

@@ -12,18 +12,18 @@ public class LoadScene : MonoBehaviour
     
     Slider m_Slider;
 
-    void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(this);
-        }
-        else
-        {
-            Destroy(this);
-        }
-    }
+    // void Awake()
+    // {
+    //     if (Instance == null)
+    //     {
+    //         Instance = this;
+    //         DontDestroyOnLoad(this);
+    //     }
+    //     else
+    //     {
+    //         Destroy(gameObject);
+    //     }
+    // }
 
     IEnumerator LoadAsynchronously(string name) {
         
@@ -38,7 +38,11 @@ public class LoadScene : MonoBehaviour
                 m_LoadingProgress = loading.progress;
 
                 m_Slider = GetComponentInChildren<Slider>();
-                m_Slider.value = m_LoadingProgress;
+
+                if (m_Slider != null)
+                {
+                    m_Slider.value = m_LoadingProgress;
+                }
             }
 
             if (loading.progress >= .9f) {

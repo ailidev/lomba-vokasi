@@ -11,7 +11,6 @@ public class PickupObjectManager : MonoBehaviour
 
     public PickupObjectData m_PickupObjectData;
 
-
     void Awake()
     {
         if (Instance == null)
@@ -28,6 +27,11 @@ public class PickupObjectManager : MonoBehaviour
     public void StartSearching(bool value)
     {
         m_PickupObjectData.m_IsSearchingObject = value;
+    }
+
+    public void SaveTotalScore()
+    {
+        GameManager.Instance.m_GameData.m_Score += m_PickupObjectData.m_TotalScore;
     }
 
 }

@@ -12,15 +12,24 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/Intro.unity
     guid: d6323e8eff274da4dafe47bc53035d7e
   - enabled: 1
+    path: Assets/Scenes/Game/Daftar.unity
+    guid: 3764401158c85b34399c92bfb451dba5
+  - enabled: 1
+    path: Assets/Scenes/Game/Intro2.unity
+    guid: 581733de7a5ade847846bf21fcfd1009
+  - enabled: 1
     path: Assets/Scenes/Game/MainHall.unity
     guid: 1a60efa00754e6845b7c9c9c689fd5d6
   - enabled: 1
-    path: Assets/Scenes/example.unity
-    guid: 0e793d21c9aad8248ad80f4955e2e5e2
-  - enabled: 1
-    path: Assets/Scenes/Game/FashionDesign.unity
+    path: Assets/Scenes/Game/FashionDesign1.unity
     guid: dd62cf9bda64bd94ca76a81a93e35038
+  - enabled: 1
+    path: Assets/Scenes/Game/Dialog1.unity
+    guid: 9b2a119e32172a14b8c22c930b3b3dea
   - enabled: 1
     path: Assets/Scenes/Game/Pariwisata.unity
     guid: b368d2fabafef104f9cebba147ae6953
+  - enabled: 1
+    path: Assets/Scenes/Game/GameResult.unity
+    guid: 560dc9b4ba909fb4a8e882ef6b895e4e
   m_configObjects: {}

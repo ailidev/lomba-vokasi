@@ -65,6 +65,7 @@ public class QuizManager : MonoBehaviour
             // Show result panel
             m_Animator.SetBool("IsQuizOver", true);
             StartCoroutine(QuizResult());
+            GameManager.Instance.m_GameData.m_Score += m_TotalScore;
             Debug.Log("Quiz Over");
         }
     }
@@ -87,17 +88,8 @@ public class QuizManager : MonoBehaviour
     IEnumerator QuizResult()
     {
         yield return new WaitForSeconds(m_Animator.GetCurrentAnimatorStateInfo(0).length);
-        m_TotalScoreContainer.text += StartCoroutine(CountIt(.2f, 0, m_TotalScore)).ToString();
+        m_TotalScoreContainer.text = m_TotalScore.ToString();
         m_CorrectAnswerContainer.text = m_CorrectAnswerCount.ToString();
         m_WrongAnswerContainer.text = m_WrongAnswerCount.ToString();
-    }
-
-    IEnumerator CountIt(float delay, int MinValue, int MaxValue)
-    {
-        if (MinValue <= MaxValue)
-        {
-            MinValue++;
-            yield return new WaitForSeconds(delay);
-        }
     }
 }

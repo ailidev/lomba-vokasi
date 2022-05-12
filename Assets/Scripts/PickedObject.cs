@@ -20,7 +20,7 @@ public class PickedObject : MonoBehaviour
 
     public void PickObject()
     {
-        StartCoroutine(Pick(.5f));
+        StartCoroutine(Pick(.3f));
     }
 
     IEnumerator Pick(float delay)
@@ -30,25 +30,34 @@ public class PickedObject : MonoBehaviour
             m_AudioSource.PlayOneShot(m_PickedSound);
         }
 
-        if (m_ObjectValue)
+        if (PickupObjectManager.Instance.m_PickupObjectData.m_IsSearchingObject)
         {
-            // GameManager.Instance.m_GameData.m_Score += m_CorrectPoint;
-            PickupObjectManager.Instance.m_PickupObjectData.m_TotalScore += m_CorrectPoint;
-            PickupObjectManager.Instance.m_PickupObjectData.m_TotalCorrectObject++;
-            PickupObjectManager.Instance.m_TotalCorrectContainer.text = PickupObjectManager.Instance.m_PickupObjectData.m_TotalCorrectObject.ToString();
+            if (m_ObjectValue)
+            {
+                PickupObjectManager.Instance.m_PickupObjectData.m_TotalScore += m_CorrectPoint;
+                PickupObjectManager.Instance.m_PickupObjectData.m_TotalCorrectObject++;
+                PickupObjectManager.Instance.m_TotalCorrectContainer.text = PickupObjectManager.Instance.m_PickupObjectData.m_TotalCorrectObject.ToString();
+            }
+            else
+            {
+                PickupObjectManager.Instance.m_PickupObjectData.m_TotalScore -= m_WrongPoint;
+                PickupObjectManager.Instance.m_PickupObjectData.m_TotalWrongObject++;
+                PickupObjectManager.Instance.m_TotalWrongContainer.text = PickupObjectManager.Instance.m_PickupObjectData.m_TotalWrongObject.ToString();
+            }
+
+            if (PickupObjectManager.Instance.m_PickupObjectData.m_TotalScore < 0)
+            {
+                PickupObjectManager.Instance.m_TotalScoreContainer.text = "0";
+                PickupObjectManager.Instance.m_PickupObjectData.m_TotalScore = 0;
+            }
+            else
+            {
+                PickupObjectManager.Instance.m_TotalScoreContainer.text = PickupObjectManager.Instance.m_PickupObjectData.m_TotalScore.ToString();
+            }
+
+            yield return new WaitForSeconds(delay);
+
+            Destroy(gameObject);
         }
-        else
-        {
-            // GameManager.Instance.m_GameData.m_Score -= m_WrongPoint;
-            PickupObjectManager.Instance.m_PickupObjectData.m_TotalScore -= m_WrongPoint;
-            PickupObjectManager.Instance.m_PickupObjectData.m_TotalWrongObject++;
-            PickupObjectManager.Instance.m_TotalWrongContainer.text = PickupObjectManager.Instance.m_PickupObjectData.m_TotalWrongObject.ToString();
-        }
-
-        PickupObjectManager.Instance.m_TotalScoreContainer.text = PickupObjectManager.Instance.m_PickupObjectData.m_TotalScore.ToString();
-
-        yield return new WaitForSeconds(delay);
-
-        Destroy(gameObject);
     }
 }

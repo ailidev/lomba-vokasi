@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7004760888588175114}
   - component: {fileID: 7004760888588175115}
+  - component: {fileID: 1706341997237258440}
   m_Layer: 0
   m_Name: PickObjectsManager
-  m_TagString: Untagged
+  m_TagString: Script
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,8 +44,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2414545735468c4fb75234911fe1010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PickUpObjectData:
+  m_TotalScoreContainer: {fileID: 0}
+  m_TotalCorrectContainer: {fileID: 0}
+  m_TotalWrongContainer: {fileID: 0}
+  m_PickupObjectData:
     m_IsSearchingObject: 0
+    m_TotalScore: 0
     m_TotalCorrectObject: 0
     m_TotalWrongObject: 0
-    m_TotalObjectPicked: 0
+--- !u!114 &1706341997237258440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7004760888588175112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49104b2931c06c41ba9bab3762a6692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

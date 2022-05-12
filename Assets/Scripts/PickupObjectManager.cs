@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PickupObjectManager : MonoBehaviour
 {
     public static PickupObjectManager Instance { get; set; }
-    public PickupObjectData m_PickUpObjectData;
+
+    [SerializeField] public TMP_Text m_TotalScoreContainer, m_TotalCorrectContainer, m_TotalWrongContainer;
+
+    public PickupObjectData m_PickupObjectData;
+
 
     void Awake()
     {
@@ -22,7 +27,7 @@ public class PickupObjectManager : MonoBehaviour
 
     public void StartSearching(bool value)
     {
-        m_PickUpObjectData.m_IsSearchingObject = value;
+        m_PickupObjectData.m_IsSearchingObject = value;
     }
 
 }

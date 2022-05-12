@@ -32,16 +32,20 @@ public class PickedObject : MonoBehaviour
 
         if (m_ObjectValue)
         {
-            GameManager.Instance.m_GameData.m_Score += m_CorrectPoint;
-            PickupObjectManager.Instance.m_PickUpObjectData.m_TotalCorrectObject++;
+            // GameManager.Instance.m_GameData.m_Score += m_CorrectPoint;
+            PickupObjectManager.Instance.m_PickupObjectData.m_TotalScore += m_CorrectPoint;
+            PickupObjectManager.Instance.m_PickupObjectData.m_TotalCorrectObject++;
+            PickupObjectManager.Instance.m_TotalCorrectContainer.text = PickupObjectManager.Instance.m_PickupObjectData.m_TotalCorrectObject.ToString();
         }
         else
         {
-            GameManager.Instance.m_GameData.m_Score -= m_WrongPoint;
-            PickupObjectManager.Instance.m_PickUpObjectData.m_TotalWrongObject++;
+            // GameManager.Instance.m_GameData.m_Score -= m_WrongPoint;
+            PickupObjectManager.Instance.m_PickupObjectData.m_TotalScore -= m_WrongPoint;
+            PickupObjectManager.Instance.m_PickupObjectData.m_TotalWrongObject++;
+            PickupObjectManager.Instance.m_TotalWrongContainer.text = PickupObjectManager.Instance.m_PickupObjectData.m_TotalWrongObject.ToString();
         }
 
-        PickupObjectManager.Instance.m_PickUpObjectData.m_TotalObjectPicked++;
+        PickupObjectManager.Instance.m_TotalScoreContainer.text = PickupObjectManager.Instance.m_PickupObjectData.m_TotalScore.ToString();
 
         yield return new WaitForSeconds(delay);
 

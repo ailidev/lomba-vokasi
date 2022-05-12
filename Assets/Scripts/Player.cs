@@ -60,7 +60,6 @@ public class Player : MonoBehaviour {
     [SerializeField] public TextMeshProUGUI m_InteractText;
 
     MyCursor m_Cursor;
-    LoadScene m_LoadScene;
 
     void Awake() {
         m_Animator = GetComponent<Animator>();
@@ -69,7 +68,6 @@ public class Player : MonoBehaviour {
         // m_FlashlightAudio = m_Flashlight.GetComponent<AudioSource>();
         // m_FlashlightLight = m_Flashlight.GetComponent<Light>();
         m_Cursor = FindObjectOfType<MyCursor>();
-        m_LoadScene = FindObjectOfType<LoadScene>();
 
         if (Instance == null)
         {
@@ -250,12 +248,12 @@ public class Player : MonoBehaviour {
                         // door.OpenObject();
                         if (door.m_LoadScene != null)
                         {
-                            m_LoadScene.LoadSceneName(door.m_LoadScene);
+                            LoadScene.Instance.LoadSceneName(door.m_LoadScene);
                         }
 
                         if (door.m_LoadPreviousLocation)
                         {
-                            if (m_LoadScene.m_LoadingProgress == 1)
+                            if (LoadScene.Instance.m_LoadingProgress == 1)
                             {
                                 // GameManager.Instance.LoadPosition();
                             }

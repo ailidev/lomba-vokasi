@@ -1,24 +1,44 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LoadScene : MonoBehaviour
 {
     public static LoadScene Instance { get; set; }
-    [SerializeField] public Animator m_LoadingScreen;
-    public float m_LoadingProgress;
 
-    private IEnumerator LoadAsynchronously(string name) {
+    [SerializeField] public Animator m_LoadingScreen;
+    [SerializeField] public float m_LoadingProgress;
+    
+    Slider m_Slider;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+
+    IEnumerator LoadAsynchronously(string name) {
+        
         Time.timeScale = 1;
         AsyncOperation loading = SceneManager.LoadSceneAsync(name);
         loading.allowSceneActivation = false;
-        m_LoadingProgress = loading.progress;
 
         while (!loading.isDone) {
-            // m_LoadingScreen.SetActive(true);
             if (m_LoadingScreen != null)
             {
                 m_LoadingScreen.SetBool("IsLoading", true);
+                m_LoadingProgress = loading.progress;
+
+                m_Slider = GetComponentInChildren<Slider>();
+                m_Slider.value = m_LoadingProgress;
             }
 
             if (loading.progress >= .9f) {

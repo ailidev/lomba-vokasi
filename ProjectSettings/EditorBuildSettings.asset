@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game/GameResult.unity
     guid: 560dc9b4ba909fb4a8e882ef6b895e4e
+  - enabled: 1
+    path: Assets/Scenes/Game/barista.unity
+    guid: c9e180e8053b2d64483727339f2d7e00
   m_configObjects: {}

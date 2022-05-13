@@ -27,7 +27,10 @@ namespace UVNF.Core.Story.Other
         public override object GetValue(NodePort port)
         {
             if (port.IsConnected)
+            {
                 return port.Connection.node;
+            }
+            
             return null;
         }
 
@@ -47,6 +50,6 @@ namespace UVNF.Core.Story.Other
 
             IsRoot = GUILayout.Toggle(IsRoot, "Is Root");
         }
-    }
 #endif
+    }
 }
